@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0;
+
 	va_start(args, format);
 
 	while (*format)
@@ -23,6 +24,7 @@ int _printf(const char *format, ...)
 		else if (*format == 's')
 		{
 			char *str = va_arg(args, char *);
+
 			while (*str)
 			{
 				i += _putchar(*str);
