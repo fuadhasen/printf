@@ -10,9 +10,8 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	va_start(args, format);
 	int i = 0;
-	char *str;
+	va_start(args, format);
 
 	while (*format)
 	{
@@ -23,10 +22,10 @@ int _printf(const char *format, ...)
 			i += _putchar(va_arg(args, int));
 		else if (*format == 's')
 		{
-			str = va_arg(args, char *);
+			char *str = va_arg(args, char *);
 			while (*str)
 			{
-				i += _putchar(str);
+				i += _putchar(*str);
 				str++;
 			}
 		}
