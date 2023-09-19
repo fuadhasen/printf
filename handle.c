@@ -1,53 +1,30 @@
 #include "main.h"
+#include <stdarg.h>
 
-int _printf(const char *format, ...)
+/**
+ * handle_d - Handles the %d and %i conversion specifiers.
+ * @args: A va_list containing the arguments.
+ *
+ * Return: The number of characters printed.
+ */
+int handle_d(va_list args)
 {
-    va_list args;
-    int i = 0;
-    va_start(args, format);
-
-    while (format && *format)
-    {
-        if (*format == '%' && (*(format + 1) == 'd' || *(format + 1) == 'i'))
-        {
-            format++;
-            int num = va_arg(args, int);
-            i += print_number(num);
-        }
-        else
-        {
-            i += _putchar(*format);
-        }
-
-        format++;
-    }
-
-    va_end(args);
-    return (i);
-}
-int print_number(int n)
-{
+    int num = va_arg(args, int);
     int count = 0;
-    unsigned int num;
 
-    if (n < 0)
-    {
-        _putchar('-');
-        num = -n;
-        count++;
-    }
-    else
-    {
-        num = n;
-    }
-
-    if (num / 10 != 0)
-    {
-        count += print_number(num / 10);
-    }
-
-    _putchar('0' + (num % 10));
-    count++;
+    count += print_number(num);
 
     return (count);
 }
+
+/**
+ * handle_i - Handles the %i conversion specifier.
+ * @args: A va_list containing the arguments.
+ *
+ * Return: The number of characters printed.
+ */
+int handle_i(va_list args)
+{
+    return handle_d(args); // %i is treated the same as %d
+}
+
