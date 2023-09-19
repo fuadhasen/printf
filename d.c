@@ -18,21 +18,21 @@ int _p(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == '\0')
-				break;
 			if (*format == 'd' || *format == 'i')
 			{
 				int num = va_arg(args, int);
 
 				i += print_number(num);
 			}
-			format++;
+			else
+			{
+				i += _putchar('%');
+				i += _putchar(*format);
+			}
 		}
 		else
-		{
-			i += write(1, format, 1);
-			format++;
-		}
+			i += _putchar(*format);
+		format++;
 	}
 	va_end(args);
 	return (i);
