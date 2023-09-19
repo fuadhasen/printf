@@ -64,7 +64,7 @@ int print_number(int n)
 	{
 		count += print_number(num / 10);
 	}
-	_putchar('0' + (num % 10));
+	_putchar((char)('0' + (num % 10)));
 	count++;
 
 	return (count);
