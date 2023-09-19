@@ -72,15 +72,3 @@ int print_number(int n)
 
     return (count);
 }
-
-/**
- * _putchar - Custom function to print a character to stdout.
- * @c: The character to be printed.
- *
- * Return: 1 (Success), -1 (Failure).
- */
-int _putchar(char c)
-{
-    return write(1, &c, 1);
-}
-
