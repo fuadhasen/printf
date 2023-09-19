@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAIN
+#define MAIN
 
 #include <stdarg.h>
 
@@ -9,6 +9,6 @@
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_number(int n);
-int _printf(const char *format, ...);
+int _p(const char *format, ...);
 
-#endif /*MAIN_H*/
+#endif
