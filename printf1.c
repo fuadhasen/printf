@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * _printf - Custom printf function
+ * _printf1 - Custom printf function
  * @format: The format string.
  *
  * Return: The number of characters printed.
@@ -69,4 +69,4 @@ int print_number(int n)
 	_putchar('0' + (num % 10));
 	x++;
 	return (x);
-
+}
