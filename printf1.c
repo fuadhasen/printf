@@ -9,35 +9,36 @@
  */
 int _printf1(const char *format, ...)
 {
-    va_list args;
-    int i = 0;
-    va_start(args, format);
+	va_list args;
+	int i = 0;
 
-    while (format && *format)
-    {
-        if (*format == '%')
-        {
-            format++;
+	va_start(args, format);
 
-            if (*format == '\0')
-                break;
+	while (format && *format)
+	{
+		if (*format == '%')
+		{
+			format++;
 
-            if (*format == 'd' || *format == 'i')
-            {
-                int num = va_arg(args, int);
-                i += print_number(num);
-            }
-            format++;
-        }
-        else
-        {
-            i += _putchar(*format);
-            format++;
-        }
-    }
+			if (*format == '\0')
+				break;
 
-    va_end(args);
-    return (i);
+			if (*format == 'd' || *format == 'i')
+			{
+				int num = va_arg(args, int);
+
+				i += print_number(num);
+			}
+			format++;
+		}
+		else
+		{
+			i += _putchar(*format);
+			format++;
+		}
+	}
+	va_end(args);
+	return (i);
 }
 
 /**
@@ -48,27 +49,24 @@ int _printf1(const char *format, ...)
  */
 int print_number(int n)
 {
-    int count = 0;
-    unsigned int num;
+	int x = 0;
+	unsigned int num;
 
-    if (n < 0)
-    {
-        _putchar('-');
-        num = -n;
-        count++;
-    }
-    else
-    {
-        num = n;
-    }
+	if (n < 0)
+	{
+		_putchar('-');
+		num = -n;
+		x++;
+	}
+	else
+	{
+		num = n;
+	}
+	if (num / 10 != 0)
+	{
+		x += print_number(num / 10);
+	}
+	_putchar('0' + (num % 10));
+	x++;
+	return (x);
 
-    if (num / 10 != 0)
-    {
-        count += print_number(num / 10);
-    }
-
-    _putchar('0' + (num % 10));
-    count++;
-
-    return (count);
-}
