@@ -17,26 +17,29 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
+		{
 			format++;
-		if (*format == 'c')
-			i += _putchar(va_arg(args, int));
-		else if (*format == 's')
-		{
-			char *str = va_arg(args, char *);
-			while (*str)
+			if (*format == 'c')
+				i += _putchar(va_arg(args, int));
+			else if (*format == 's')
 			{
-				i += _putchar(*str);
-				str++;
+				char *str = va_arg(args, char *);
+
+				while (*str)
+				{
+					i += _putchar(*str);
+					str++;
+				}
 			}
-		}
-		else if (*format == '%')
-		{
-			i += _putchar('%');
-		}
-		else
-		{
-			i += _putchar('%');
-			i += _putchar(*format);
+			else if (*format == '%')
+			{
+				i += _putchar('%');
+			}
+			else
+			{
+				i += _putchar('%');
+				i += _putchar(*format);
+			}
 		}
 		else
 			i += _putchar(*format);
