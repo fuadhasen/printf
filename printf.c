@@ -17,7 +17,6 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-		{
 			format++;
 		if (*format == 'c')
 			i += _putchar(va_arg(args, int));
@@ -38,7 +37,6 @@ int _printf(const char *format, ...)
 		{
 			i += _putchar('%');
 			i += _putchar(*format);
-		}
 		}
 		else
 			i += _putchar(*format);
