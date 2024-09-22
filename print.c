@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_number - Custom function to print an integer.
+ * print_number - Custom function to print an integer
  * @n: The integer to be printed.
  *
  * Return: The number of characters printed.
